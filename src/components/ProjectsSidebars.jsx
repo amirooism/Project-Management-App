@@ -4,7 +4,8 @@ export default function ProjectSidebars({
   onStartAddProject,
   projects,
   onSelectProject,
-  selectProjectID, //we create this prob for highlighting the title in sidebar when it selected
+  selectProjectID,
+   //we create this prob for highlighting the title in sidebar when it selected
 }) {
   return (
     <aside className="w-1/3 p x-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
