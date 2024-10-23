@@ -42,7 +42,6 @@ function App() {
       const newProject = {
         ...projectData,
         id: projectid,
-        
       };
 
       return {
@@ -50,16 +49,28 @@ function App() {
         SelectedProjectID: undefined,
         projects: [...prevState.projects, newProject], // should be 'projects' not 'project'
       };
-      
     });
   }
-  console.log(projectState);
 
-const selectedProject = projectState.projects.find((project) => project.id === projectState.SelectedProjectID
-);
+  function handleDeleteProject() {
+    setProjectState((prevState) => {
+      return {
+        ...prevState,
+        SelectedProjectID: undefined,
+        projects: prevState.projects.filter(
+        (project) => project.id !== prevState.SelectedProjectID // Filter out the project with the given id
+      )
+      };
+    });
+  }
 
+  const selectedProject = projectState.projects.find(
+    (project) => project.id === projectState.SelectedProjectID
+  );
 
-  let content = <SelectedProject project={selectedProject}/>
+  let content = (
+    <SelectedProject project={selectedProject} onDelete={handleDeleteProject} />
+  );
 
   if (projectState.SelectedProjectID === null) {
     content = (

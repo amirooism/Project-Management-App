@@ -27,7 +27,10 @@ export default function ProjectSidebars({
           return (
             //we make return here so we can add more code to the map function, because we want to add css class to button dynamclly
             <li key={project.id}>
-              <button className={cssClass} onClick={() => onSelectProject(project.id)}>
+              <button
+                className={cssClass}
+                onClick={() => onSelectProject(project.id)}
+              >
                 {project.title}
               </button>
             </li>
