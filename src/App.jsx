@@ -17,6 +17,14 @@ function App() {
       };
     });
   }
+  function handleCancelProject() {
+    setProjectState((prevState) => {
+      return {
+        ...prevState,
+        SelectedProjectID: undefined,
+      };
+    });
+  }
 
   function handleAddProject(projectData) {
     setProjectState((prevState) => {
@@ -28,6 +36,7 @@ function App() {
         // description:
         // duDate:
       };
+      
 
       return {
         ...prevState,
@@ -42,7 +51,7 @@ function App() {
   let content;
 
   if (projectState.SelectedProjectID === null) {
-    content = <NewProject onAdd={handleAddProject} />;
+    content = <NewProject onAdd={handleAddProject} onCancel={handleCancelProject} />;
   } else if (projectState.SelectedProjectID === undefined) {
     content = <NoProjectSelected onStartAddProject={handleStartAddProject} />;
   }
