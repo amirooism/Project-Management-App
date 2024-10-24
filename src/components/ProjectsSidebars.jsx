@@ -4,7 +4,7 @@ export default function ProjectSidebars({
   onStartAddProject,
   projects,
   onSelectProject,
-  selectProjectID,
+  SelectedProjectID,
    //we create this prob for highlighting the title in sidebar when it selected
 }) {
   return (
@@ -19,7 +19,7 @@ export default function ProjectSidebars({
         {projects.map((project) => {
           let cssClass =
             "w-full text-left px-2 py-1 rounded-sm my-1 hover:bg-stone-800";
-          if (project.id === selectProjectID) {
+          if (project.id === SelectedProjectID) {
             cssClass += " bg-stone-800 text-stone-200";
           } else {
             cssClass += " text-stone-400";
